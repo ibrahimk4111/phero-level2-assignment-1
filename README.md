@@ -5,7 +5,12 @@ We can specify a newly created class by using this ‘instanceof’ type guard. 
 example 1:
 
 #### typeof 
+'typeof' type guard make us sure that, what  kind of variable it is.
+
+
 #### in 
+
+
 #### is 
 
 
