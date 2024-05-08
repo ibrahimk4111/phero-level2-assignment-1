@@ -1,21 +1,11 @@
 {
-  //   interface vehicle {
-  //     name: string;
-  //     brand: string;
-  //     version: number;
-  //   }
   class Car {
-    constructor(
-      public name: string,
-      public brand: string,
-      public version: number
-    ) {}
-
-    getName(): string {
-      return ``;
+    constructor(public brand: string, public model: string, public year : number ){}
+    carDetails(){
+        console.log (`Your car model is: ${this.year} ${this.brand} ${this.model}`)
     }
-  }
+}
 
-  const car = new Car("Toyota", "Corolla", 2020);
-  car.getName();
+const toyota = new Car ("Toyota", "Corolla", 2020)
+toyota.carDetails()
 }
