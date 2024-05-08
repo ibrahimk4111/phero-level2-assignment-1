@@ -1,8 +1,8 @@
 ## Type Guard
 As we know that, there have some type guard which makes our code more easier and bug fixing friendly. Significance of these type guards written below:-
-#### Instanceof 
-We can specify a newly created class by using this ‘instanceof’ type guard. It means that, in which class the method situated at.
-example 1:
+
+#### Instanceof
+ ‘instanceof’ type guard means that, wheather the specific variable or method is the element of object or not.
 
 #### typeof 
 'typeof' type guard make us sure that, what  kind of variable it is.
@@ -12,7 +12,7 @@ example 1:
 'in' type guard works kind of condition whether variable is in this object or not. 
 
 #### is 
-
+is type guard indicates also conditional method which means what type of variable it is.
 
 
 ## Union Type
