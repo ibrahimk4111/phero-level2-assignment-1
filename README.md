@@ -1,3 +1,14 @@
+## Type Guard
+As we know that, there have some type guard which makes our code more easier and bug fixing friendly. Significance of these type guards written below:-
+#### Instanceof 
+We can specify a newly created class by using this ‘instanceof’ type guard. It means that, in which class the method situated at.
+example 1:
+
+#### typeof 
+#### in 
+#### is 
+
+
 ## Union Type
 We all know that typescript gives us some premitive types (string/number/boolean/undefined) to define a variable's type. In functions we can define type using two to more by separating them with '|'.
 
