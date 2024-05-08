@@ -38,7 +38,8 @@ type device = "vivo" |  "samsung" | "oppo" | "itel"
 
 If we carefully look over the deviceName (example 2) function that, there we can't provide any other name or text as parameter but if we give any of these ("vivo" |  "samsung" | "oppo" | "itel") then the function will work. In conclusion, if we make an Unit of Type using '|' between two or more types is called as Union Type in TS.
  
-
+## Intersection 
+Intersection or & make a unit of two or more types and if a variable pass through intersection type it have to pass these all types parallelly. 
 
 
 
