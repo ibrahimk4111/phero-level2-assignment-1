@@ -9,9 +9,10 @@ example 1:
 
 
 #### in 
-in type guard works kind of condition in class 
+'in' type guard works kind of condition whether variable is in this object or not. 
 
 #### is 
+
 
 
 ## Union Type
