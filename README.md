@@ -9,7 +9,7 @@ example 1:
 
 
 #### in 
-
+in type guard works kind of condition in class 
 
 #### is 
 
