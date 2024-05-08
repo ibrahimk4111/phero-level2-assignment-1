@@ -1,3 +1,30 @@
+## Union Type
+We all know that typescript gives us some premitive types (string/number/boolean/undefined) to define a variable's type. In functions we can define type using two to more by separating them with '|'.
+
+example: 1
+```
+(function concatOrSum(a: string | number, b: string | number) {
+  console.log(typeof a, typeof b)
+})("hello", 2);
+```
+In concatOrSum (example 1) we can pass string or number.
+
+
+In such way, we can create our own, two or more types into an type alias and use them to define a function or variable's type.
+example 2:
+```
+type device = "vivo" |  "samsung" | "oppo" | "itel"
+(function deviceName(a: string, b:device){
+  console.log(`${a} ${b}`)
+})("My mobile name is: ", "vivo")
+```
+
+If we carefully look over the deviceName (example 2) function that, there we can't provide any other name or text as parameter but if we give any of these ("vivo" |  "samsung" | "oppo" | "itel") then the function will work. In conclusion, if we make an Unit of Type using '|' between two or more types is called as Union Type in TS.
+ 
+
+
+
+
 # batch3-assignment-1
 
 ## Assignment: Basic Problem Solving with TypeScript
