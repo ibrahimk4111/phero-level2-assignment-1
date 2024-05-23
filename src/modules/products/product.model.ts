@@ -1,7 +1,8 @@
 import { Schema, model } from "mongoose";
+import { InventoryType, ProductType, VariantType, isExistsProduct } from "./product.interface";
 
 // Define VariantType schema
-const VariantSchema = new Schema({
+const VariantSchema = new Schema<VariantType>({
   type: { 
     type: String, 
     required: [true, 'Variant type is required'], 
@@ -15,7 +16,7 @@ const VariantSchema = new Schema({
 });
 
 // Define InventoryType schema
-const InventorySchema = new Schema({
+const InventorySchema = new Schema<InventoryType>({
   quantity: { 
     type: Number, 
     required: [true, 'Quantity is required'], 
@@ -28,7 +29,7 @@ const InventorySchema = new Schema({
 });
 
 // Define the main ProductType schema
-const ProductSchema = new Schema({
+const ProductSchema = new Schema<ProductType, isExistsProduct>({
   name: { 
     type: String, 
     required: [true, 'Product name is required'], 
@@ -59,12 +60,8 @@ const ProductSchema = new Schema({
     type: [VariantSchema] 
   },
   inventory: { 
-    type: [InventorySchema], 
+    type: InventorySchema, 
     required: [true, 'Inventory is required']
-  },
-  isDeleted: { 
-    type: Boolean, 
-    default: false 
   }
 }, { timestamps: true });
 
@@ -73,5 +70,10 @@ function arrayLimit(val:string[]) {
   return val.length <= 10;
 }
 
+
+// checking is exists product or not
+ProductSchema.statics.isExistsProduct = async function (name:string) {
+  return await this.findOne({name})
+}
 // Create the model
-export const Product = model('Product', ProductSchema);
+export const Product = model<ProductType, isExistsProduct>('Product', ProductSchema);
