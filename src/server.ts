@@ -1,13 +1,16 @@
 import app from "./app";
-import { config } from "./config";
+import { config } from "./app/config";
 import mongoose from "mongoose";
 
 async function main() {
-  await mongoose.connect(config.db_url as string);
-  console.log("mongoose connected");
+  try {
+      await mongoose.connect(config.db_url as string)
+      app.listen(config.port, () => {
+      console.log(`server is in http://localhost:${config.port}`)
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
-main();
 
-app.listen(config.port, () => {
-  console.log(`[server]: Server is running at http://localhost:${config.port}`);
-});
+main();

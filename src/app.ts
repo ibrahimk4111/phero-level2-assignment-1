@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { allRouters } from './routes';
+import { allRouters } from './app/routes';
 const app = express();
 
 // parser middleware
