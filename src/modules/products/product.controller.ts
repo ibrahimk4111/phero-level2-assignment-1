@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { responseHandler } from "../../helpers/responseHandler";
 import { productService } from "./product.service";
 import ProductZodSchema from "./product.validation";
 import { Product } from "./product.model";
 
-const createProduct = async (req: Request, res: Response, next: NextFunction) => {
+const createProduct = async (req: Request, res: Response) => {
   try {
     const { name } = req.body;
     let result;
@@ -17,34 +17,58 @@ const createProduct = async (req: Request, res: Response, next: NextFunction) =>
       responseHandler(req, res, 200, true, "Product created successfully!", result);
     }
   } catch (error) {
-    next(error)
+    console.log("create Product error: ", error)
   }
 };
 
 const getAllProducts = async (req: Request, res: Response) => {
-  const result = "getAllProducts";
-  responseHandler(req, res, 200, true, "Product created successfully!", result);
+  try {
+    const result = await productService.getAllProductsFromDB();
+  responseHandler(req, res, 200, true, "Product fetched successfully!", result);
+  } catch (error) {
+    console.log("get all Product error: ", error)
+  }
 };
 
 const getSingleProduct = async (req: Request, res: Response) => {
-  const result = "getSingleProduct";
-  responseHandler(req, res, 200, true, "Product created successfully!", result);
+  try {
+    const result = await productService.getSingleProductsFromDB(req.params.id);
+    responseHandler(req, res, 200, true, "Product fetched successfully!", result);
+  } catch (error) {
+    console.log("get single Product error: ", error)
+  }
 };
 
 const searchProduct = async (req: Request, res: Response) => {
-  const result = "searchProduct";
-  responseHandler(req, res, 200, true, "Product created successfully!", result);
+  try {
+    const {searchTerm} = req.query;
+    const result = await productService.searchProductsFromDB(searchTerm as string);
+    responseHandler(req, res, 200, true, "Product searched successfully!", result);
+  } catch (error) {
+    console.log("search Product error: ", error)
+  }
 };
 
 const updateProduct = async (req: Request, res: Response) => {
-  const result = "updateProduct";
-  responseHandler(req, res, 200, true, "Product created successfully!", result);
+  try {
+    const result = await productService.updateProductFromDB(req.params.id, req.body)
+    responseHandler(req, res, 200, true, "Product created successfully!", result);
+  } catch (error) {
+    console.log("update Product error: ", error)
+  }
 };
 
 const deleteProduct = async (req: Request, res: Response) => {
-  const result = "deleteProduct";
-  responseHandler(req, res, 200, true, "Product created successfully!", result);
+  try {
+    const result = await productService.deleteProductFromDB(req.params.id);
+    responseHandler(req, res, 200, true, "Product created successfully!", result);
+  } catch (error) {
+    console.log("delete Product error: ", error)
+  }
 };
+
+
+
 
 export const productController = {
   createProduct,

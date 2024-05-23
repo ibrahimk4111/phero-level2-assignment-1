@@ -1,5 +1,4 @@
 import express, { Request, Response } from 'express';
-import { errorHandler } from './middlewares/errorHandler';
 import { allRouters } from './routes';
 const app = express();
 
@@ -19,5 +18,5 @@ app.all("*", (req: Request, res: Response)=>{
     message: "Route not Found!"
   })
 })
-app.use(errorHandler)
+
 export default app;
