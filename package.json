@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "npx ts-node-dev --respawn --transpile-only src/server.ts",
-    "start": "nodemon server.js",
+    "start": "nodemon src/server.js",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
     "lint:fix": "eslint src --ignore-path .eslintignore --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
