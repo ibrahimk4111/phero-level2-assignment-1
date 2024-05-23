@@ -3,10 +3,9 @@
 ## eslint configuration
 
 #### step - 1.
-`
+```
 npm i eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-prettier prettier --save-dev
-
-`
+```
 
 
 #### step - 2.
